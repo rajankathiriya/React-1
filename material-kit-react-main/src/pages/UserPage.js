@@ -23,6 +23,7 @@ import {
   TablePagination,
 } from '@mui/material';
 // components
+import UserDialog from '../sections/@dashboard/user/UserDialog';
 import Label from '../components/label';
 import Iconify from '../components/iconify';
 import Scrollbar from '../components/scrollbar';
@@ -157,9 +158,7 @@ export default function UserPage() {
           <Typography variant="h4" gutterBottom>
             User
           </Typography>
-          <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New User
-          </Button>
+          <UserDialog />
         </Stack>
 
         <Card>
