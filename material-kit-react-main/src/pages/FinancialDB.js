@@ -7,7 +7,8 @@ const FinancialDB = () => {
   return (
     <>
       <Helmet>
-        <title> Dashboard: FinancialDB | Minimal UI </title>
+        {/* <title> Financial Dashboard </title> */}
+        <title> Shital Academy Vadodara </title>
       </Helmet>
       {/* hello */}
       <Container maxWidth="xl">
