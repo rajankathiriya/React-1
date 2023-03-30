@@ -26,15 +26,16 @@ export default function UserDialog() {
       <Dialog
         open={open}
         onClose={handleClose}
+        // fullScreen
+        fullWidth
+        maxWidth="xl"
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+          <h3 className="bg-light p-3 rounded-3">Student Info</h3>
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous location data to Google, even when no
-            apps are running.
-          </DialogContentText>
           <UserForm />
         </DialogContent>
         <DialogActions>
