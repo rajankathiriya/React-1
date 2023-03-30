@@ -13,19 +13,7 @@ const TextField = styled(TextValidator)(() => ({
 const UserForm = () => {
   // const [state, setState] = useState({ date: new Date() });
 
-  const [data, setdata] = useState({
-    name: "",
-    parentsname: "",
-    studentmobile: "",
-    parentmobile: "",
-    email: "",
-    birthdate: "",
-    gender: "",
-    whatsapp: "",
-    education: "",
-    address: "",
-    city: "",
-  });
+  const [data, setdata] = useState("");
   useEffect(() => {
     ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
       if (value !== data.password) return false;
@@ -54,7 +42,22 @@ const UserForm = () => {
 
   // const handleDateChange = (date) => setState({ ...state, date });
 
-  // const { username, firstName, creditCard, mobile, password, confirmPassword, gender, date, email } = state;
+  const { name,
+    parentsname,
+    studentmobile,
+    parentmobile,
+    email,
+    birthdate,
+    gender,
+    whatsapp,
+    education,
+    address,
+    city,
+    enquirydate,
+    takenby,
+    course,
+    fees,
+    leadsource } = data;
 
 
 
@@ -69,11 +72,11 @@ const UserForm = () => {
               type="text"
               name="name"
               id="standard-basic"
-              // value={name || ''}
+              value={name || ''}
               onChange={handleChange}
               errorMessages={['this field is required']}
-              label="Name (Min length 4, Max length 9)"
-              validators={['required', 'minStringLength: 4', 'maxStringLength: 9']}
+              label="Student Name "
+              validators={['required']}
             />
 
             <TextField
@@ -81,7 +84,7 @@ const UserForm = () => {
               name="parentsname"
               label="Parents Name"
               onChange={handleChange}
-              // value={parentsname || ''}
+              value={parentsname || ''}
               validators={['required']}
               errorMessages={['this field is required']}
             />
@@ -90,7 +93,7 @@ const UserForm = () => {
               type="email"
               name="email"
               label="Email"
-              // value={email || ''}
+              value={email || ''}
               onChange={handleChange}
               validators={['required', 'isEmail']}
               errorMessages={['this field is required', 'email is not valid']}
@@ -109,7 +112,7 @@ const UserForm = () => {
             <TextField
               type="text"
               name="studentmobile"
-              // value={mobile || ''}
+              value={studentmobile || ''}
               label="Student Mobile Nubmer"
               onChange={handleChange}
               validators={['required']}
@@ -118,7 +121,7 @@ const UserForm = () => {
             <TextField
               type="text"
               name="parentmobile"
-              // value={mobile || ''}
+              value={parentmobile || ''}
               label="Parent Mobile Nubmer"
               onChange={handleChange}
               validators={['required']}
@@ -128,7 +131,7 @@ const UserForm = () => {
             <TextField
               type="text"
               name="birthdate"
-              // value={mobile || ''}
+              value={birthdate || ''}
               label="Birth Date"
               onChange={handleChange}
               validators={['required']}
@@ -141,7 +144,7 @@ const UserForm = () => {
           <Grid item lg={6} md={6} sm={12} xs={12} sx={{ mt: 2 }}>
 
 
-            <RadioGroup row name="gender" sx={{ mb: 2 }} onChange={handleChange}>{/* value={gender || ''} */}
+            <RadioGroup row name="gender" sx={{ mb: 2 }} value={gender || ''} onChange={handleChange}>
               <FormControlLabel value="Male" label="Male" labelPlacement="end" control={<Radio color="secondary" />} />
 
               <FormControlLabel
@@ -163,7 +166,7 @@ const UserForm = () => {
             <TextField
               type="text"
               name="whatsapp"
-              // value={mobile || ''}
+              value={whatsapp || ''}
               label="Whatsapp Nubmer"
               onChange={handleChange}
               validators={['required']}
@@ -172,7 +175,7 @@ const UserForm = () => {
             <TextField
               type="text"
               name="education"
-              // value={mobile || ''}
+              value={education || ''}
               label="Education"
               onChange={handleChange}
               validators={['required']}
@@ -185,7 +188,7 @@ const UserForm = () => {
               // rows={2}
               // maxRows={4}
               name="address"
-              // value={mobile || ''}
+              value={address || ''}
               label="Address"
               onChange={handleChange}
               validators={['required']}
@@ -194,7 +197,7 @@ const UserForm = () => {
             <TextField
               type="text"
               name="city"
-              // value={mobile || ''}
+              value={city || ''}
               label="City"
               onChange={handleChange}
               validators={['required']}
@@ -202,6 +205,44 @@ const UserForm = () => {
             />
 
 
+            {/* ==================================================================================== */}
+
+            {/* ====================ENQUIRY date=================== */}
+            <TextField
+              label='Taken By'
+              select
+              variant='filled'
+              helperText='Please Select your city'
+              onChange={handleChange}
+              name='takenby'
+              SelectProps={{
+                native: 'true'
+              }}>
+              {/* <option>Taken By</option> */}
+              <option>Counsellor Vadodara</option>
+              <option>Counsellor Aanand</option>
+              <option>Counsellor Ahmedabad</option>
+              <option>Counsellor Bhavnagar</option>
+            </TextField>
+
+            <TextField
+              label='Lead Source '
+              select
+              variant='filled'
+              helperText='Please Select your city'
+              onChange={handleChange}
+              name='leadsource'
+              SelectProps={{
+                native: 'true'
+              }}>
+              <option>Discount Coupon</option>
+              <option>Facebook</option>
+              <option>Google</option>
+              <option>Just Dial</option>
+              <option>News Paper</option>
+              <option>Reference</option>
+              <option>Other</option>
+            </TextField>
 
             <FormControlLabel control={<Checkbox />} label="I have read and agree to the terms of service." />
           </Grid>
